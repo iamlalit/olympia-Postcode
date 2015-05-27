@@ -1,0 +1,30 @@
+{
+  "name": "olympia",
+  "version": "0.0.1",
+  "homepage": "olympia.nl",
+  "authors": [
+    "gauuravmehra"
+  ],
+  "description": "olympia project",
+  "main": "bower.json",
+  "keywords": [
+    "sample",
+    "project"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "parsleyjs": "~1.2.4"
+  },
+  "devDependencies": {
+    "jquery.validation": "~1.12.0"
+  }
+}
