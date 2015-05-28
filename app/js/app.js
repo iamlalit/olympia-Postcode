@@ -30,28 +30,15 @@ $(document).ready(function(){
 			}
 		}
 
-		if(postalcode.val().length != 6 && postalcode.val() != ''){
-			if(errorList.find('.errormessage-postalcode').length == 0){
-				$('<li />', {html: 'Postcode lengte moet worden 6', class : 'col-sm-12 errormessage-postalcode'})
-				.appendTo(errorList)
-				.click(function(){
-					$('html, body').animate({
-						scrollTop: postalcode.offset().top - 100
-					}, 500);
-					postalcode.focus();
-				})
-				$('#errorMsg').show();
-				postalcode.parent().addClass('has-error');
-			}
-		}
+		// console.log(postalcode.val().length)
 		var check = false;
-		if(postalcode.val().length == 6 && postalcode.val() != ''){
-			var re = /^\d{4}[a-z A-Z]{2}/g;
+		if(postalcode.val() != ''){
+			var re = /^\d{4}[A-z]{2}$|\d{4}\s[A-z]{2}$/g;
 			var value = postalcode.val();
 			var myArray = value.match(re);
 			if(myArray == null){
 				if(errorList.find('.errormessage-postalcode').length == 0){
-					$('<li />', {html: 'This is not valid postalcode', class : 'col-sm-12 errormessage-postalcode'})
+					$('<li />', {html: 'Dit is niet geldig postcode', class : 'col-sm-12 errormessage-postalcode'})
 					.appendTo(errorList)
 					.click(function(){
 						$('html, body').animate({
@@ -63,16 +50,16 @@ $(document).ready(function(){
 					postalcode.parent().addClass('has-error');
 				}
 			}else{
-				console.log(myArray);
+				// console.log(myArray);
 			
 				var strshortened = value.slice(0,4);
 				
 				for(var i = 0 ; i < listOfPostCodes.length; i++){
 					if(listOfPostCodes[i].slice(0,4) === strshortened){
-						console.log('match occur');
+						// console.log('Match occur');
 						check = true;
 					}else{
-						console.log('match not occur');
+						// console.log('Match not occur');
 					}
 
 					if(check == true){
